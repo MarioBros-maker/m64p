@@ -19,6 +19,11 @@ jobs:
         run: |
           git config --global --add safe.directory /__w/m64p/m64p
           ./build.sh
+      - name: Upload
+      - uses: actions/upload-artifact@v2
+      - with:
+          name: m64p-linux64-${{ steps.slug.outputs.sha7 }}.zip
+          path: m64p-*.zip
   build-windows:
     runs-on: windows-2022
     steps:
